@@ -81,6 +81,10 @@ void draw()
   strokeWeight(5);
   noFill();
   
+  a1 += 0.01 * beschleunigungX;
+  a2 += 0.02 * beschleunigungX;
+  a3 += 0.03 * beschleunigungX;
+  
   arc(500, 500, 600, 600, HALF_PI + (beschleunigungX * 0.1) + a1, PI + (beschleunigungX * 0.1) + a1);
   arc(500, 500, 700, 700, PI + (beschleunigungX * 0.2 ) + a2, PI+QUARTER_PI + (beschleunigungX * 0.2) + a2);
   arc(500, 500, 800, 800, PI+QUARTER_PI + (beschleunigungX * 0.3 ) + a3, TWO_PI + (beschleunigungX * 0.3 ) + a3);
@@ -89,9 +93,7 @@ void draw()
   textSize(75);
   text((int)(beschleunigungX * 10) + "%", 500, 500);
   
-  a1 += 0.01 * beschleunigungX;
-  a2 += 0.02 * beschleunigungX;
-  a3 += 0.03 * beschleunigungX;
+
   
   
 }
