@@ -19,15 +19,18 @@ void setup()
   orientation(LANDSCAPE);
   textAlign(CENTER,CENTER);
   textSize(36);
-  smooth(4);
+  smooth(2);
   frameRate(60);
 }
 
 void onAccelerometerEvent(float x, float y, float z)
 {
-  beschleunigungX = -x;
-  beschleunigungY = -y;
-  beschleunigungZ = -z;
+  
+  
+  
+  beschleunigungX = (-x + beschleunigungX) * 0.5; // -x
+  beschleunigungY = (-y + beschleunigungX) * 0.5; // -y
+  beschleunigungZ = (-z + beschleunigungX) * 0.5; // -z
   
 }
 
