@@ -25,19 +25,13 @@ void setup()
 
 void onAccelerometerEvent(float x, float y, float z)
 {
-  
-  
-  
   beschleunigungX = (-x + beschleunigungX) * 0.5; // -x
   beschleunigungY = (-y + beschleunigungX) * 0.5; // -y
   beschleunigungZ = (-z + beschleunigungX) * 0.5; // -z
-  
 }
 
 void draw()
 {
-  background(0,34,64);
-  fill(0,0,0);
   /*
   //text("B-Sensorwerte (m/s²):\n"+ "ax:" + nfp(beschleunigungX,2,3)+"\n"+ "ay:" + nfp(beschleunigungY,2,3)+"\n"+"az:" + nfp(beschleunigungZ,2,3), width/2,height/2);
   
@@ -64,22 +58,31 @@ void draw()
   }  
   */
   
+  background(0,34,64);
+  noStroke();  
   
-  noStroke();
+  //%-ARC  
   fill(2,137,255);
   if(beschleunigungX > 0){
     arc(500, 500, 500, 500, 0, beschleunigungX);
   }else{
     arc(500, 500, 500, 500, beschleunigungX, 0);
-  }
+  }  
   
+  //KREIS IN DER MITTE  
   fill(1,68,127);
   if(beschleunigungX > 0){
     ellipse(500,500,(25 * beschleunigungX) + 200, (25 * beschleunigungX) + 200);
   }else{
     ellipse(500,500,(25 * -beschleunigungX) + 200, (25 * -beschleunigungX) + 200);
   }
-  //delay(100);
+  
+  //%-ANZEIGE  
+  fill(255,255,255);
+  textSize(75);
+  text((int)(beschleunigungX * 10) + "%", 500, 500);
+  
+  //ÄUßERE BÖGEN
   stroke(2, 137, 255);
   strokeWeight(5);
   noFill();
@@ -92,9 +95,7 @@ void draw()
   arc(500, 500, 700, 700, PI + (beschleunigungX * 0.2 ) + a2, PI+QUARTER_PI + (beschleunigungX * 0.2) + a2);
   arc(500, 500, 800, 800, PI+QUARTER_PI + (beschleunigungX * 0.3 ) + a3, TWO_PI + (beschleunigungX * 0.3 ) + a3);
   
-  fill(255,255,255);
-  textSize(75);
-  text((int)(beschleunigungX * 10) + "%", 500, 500);
+
   
 
   
